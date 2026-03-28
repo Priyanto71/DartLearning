@@ -1,0 +1,1673 @@
+Dart String
+-A string is the sequence of the character. Data like- name, address, special character, etc
+-It is signified by using either single quotes or double quotes
+
+main(){
+var myStringSingle = 'This is a single quotes string';
+var myStringDouble = "This is a double quotes string";
+print(myStringSingle);
+print(myStringDouble);
+}
+output: 
+This is a single quotes string
+This is a double quotes string
+
+
+Dart Boolean
+-The Boolean type represents two values - true and false
+-The bool keyword used to denote Boolean type
+-The numeric values 1 and 0 cannot be used to represent the true or false value
+
+void main(){
+var negative = false;
+bool positive = true;
+print(negative);
+print(positive);
+}
+output: 
+false
+true
+
+
+Dart List
+-The list is a collection of the ordered objects (values) similar to an array
+-The elements in the list are separated by the comma enclosed in the square bracket[]
+
+main(){
+var list = [1,2,3];
+print(list[0]);
+}
+output:
+1
+
+Accessing a list index greater than its length in Dart causes an unhandled Range Error exception.
+
+main() {
+  var list = [1, 2, 3];
+  print(list);
+}
+output:
+[1, 2, 3]
+
+A Dart List can store different data types if it is declared as dynamic or Object, but not if it is strongly typed.
+
+Allowed:
+var list = [1, "Hello", 3.5, true];
+List<dynamic> list = [10, "Dart", false, 2.7];
+List<Object> list = [1, "World", true, 5.6];
+
+Not Allowed:
+List<int> list = [1, 2, 3];
+list.add("Hello"); // ❌ Error
+
+
+Dart Maps
+-The maps type is used to store values in key value pairs. Each key is associated with its value.
+-The key and value can be any type. In map, the key must me unique, but a value can occur multiple times.
+-The map is defined by using curly braces {}, and comma separated each pair.
+
+main(){
+var student = {'name': 'Priyanto', 'age': 22, 'number': '018xxxxx451'};
+print(student['name']);
+print(student);
+}
+output:
+Priyanto
+{name: Priyanto, age: 22, number: 018xxxxx451}
+
+
+
+Dart Operators
+
+Arithmetic Operators
+Arithmetic operators are used to perform mathematical calculations.
+
+✅ List of Arithmetic Operators
+Operator	Name	Example	Result
++	Addition	5 + 3	8
+-	Subtraction	5 - 3	2
+*	Multiplication	5 * 3	15
+/	Division (gives double)	5 / 2	2.5
+~/	Integer division	5 ~/ 2	2
+%	Modulus (remainder)	5 % 2	1
+
+main() {
+  var x = 20;
+  var y = 3;
+
+  print(x + y);
+  print(x - y);
+  print(x * y);
+  print(x / y);
+  print(x ~/ y);
+  print(x % y);
+  print(-(x - y));
+
+  print("x + y = ${x + y}");
+  print("x - y = ${x - y}");
+  print("x * y = ${x * y}");
+  print("x / y = ${x / y}");
+  print("x ~/ y = ${x ~/ y}");
+  print("x % y = ${x % y}");
+  print("-(x - y) = ${-(x - y)}");
+}
+
+
+Unary Operator
+Unary operators work with only one operand.
+
+✅ List of Unary Operators
+Operator	Name	Example	Result
+++	Increment	a++	Increases value by 1
+--	Decrement	a--	Decreases value by 1
+-	Unary minus	-a	Changes sign
+!	Logical NOT	!true	false
+~	Bitwise NOT	~5	-6
+
+Prefix Operator
+Operator comes before the variable.
+++a;
+--a;
+
+Postfix Operator
+Operator comes after the variable.
+a++;
+a--;
+
+Bitwise NOT (~)
+Bitwise NOT is a unary operator that inverts (flips) every bit of a number.
+~a;
+
+
+main() {
+  //prefix postfix
+  var a = 5;
+  print("a = $a"); //5
+  print("pre increment ${a++}"); //5
+  print("post increment ${++a}"); //7
+  print("final a = $a"); //7
+  a = 5;
+  print("a = $a"); //5
+  print("pre decrement ${a--}"); //5
+  print("post decrement ${--a}"); //3
+  print("final a = $a"); //3
+
+  //Logical NOT
+  var istrue = false;
+  print(!istrue);
+
+  //Unary Minus
+  var b = 10;
+  print("b = $b");
+  print("Unary minus of b = ${-b}");
+
+  //Bitwise NOT
+  var c = 5;
+  print("c = $c");
+  print("Bitwise NOT of c = ${~c}");
+}
+
+output:
+a = 5
+pre increment 5
+post increment 7
+final a = 7
+a = 5
+pre decrement 5
+post decrement 3
+final a = 3
+true
+b = 10
+Unary minus of b = -10
+c = 5
+Bitwise NOT of c = -6
+
+
+Assignment Operators
+Assignment operators are used to assign or update values of variables.
+
+List of Assignment Operators
+Operator	Name	Example	Meaning
+=	Simple assignment	a = 10	Assign 10 to a
++=	Add & assign	a += 5	a = a + 5
+-=	Subtract & assign	a -= 3	a = a - 3
+*=	Multiply & assign	a *= 2	a = a * 2
+/=	Divide & assign	a /= 2	a = a / 2
+~/=	Integer divide & assign	a ~/= 2	a = a ~/ 2
+%=	Modulus & assign	a %= 3	a = a % 3
+
+
+
+main() {
+  double a = 10;
+  print("a = $a"); //10.0
+  a += 5;
+  print("a = $a"); //15.0
+  a -= 10;
+  print("a = $a"); //5.0
+  a *= 6;
+  print("a = $a"); //30.0
+  a /= 10;
+  print("a = $a"); //3.0
+  a %= 2;
+  print("a = $a"); //1.0
+  var b = 20;
+  print("b = $b"); //20
+  b ~/= 10;
+  print("b = $b"); //2
+}
+
+output:
+a = 10.0
+a = 15.0
+a = 5.0
+a = 30.0
+a = 3.0
+a = 1.0
+b = 20
+b = 2
+
+
+Relational Operators
+
+Relational operators are used to compare two values.
+They always return a boolean value: true or false.
+
+✅ List of Relational Operators
+Operator	Meaning	Example	Result
+==	Equal to	5 == 5	true
+!=	Not equal to	5 != 3	true
+>	Greater than	7 > 3	true
+<	Less than	3 < 7	true
+>=	Greater than or equal to	5 >= 5	true
+<=	Less than or equal to	4 <= 6	true
+
+
+main() {
+  var a = 20;
+  var b = 10;
+  print("a = $a");
+  print("b = $b");
+  print("Is a and b equal? : ${a == b}");
+  print("Is a and b not equal? : ${a != b}");
+  print("Is a greater than b? : ${a > b}");
+  print("Is a less than b? : ${a < b}");
+  print("Is a greater than or equal to b? : ${a >= b}");
+  print("Is a less than or equal to b? : ${a <= b}");
+}
+
+output:
+a = 20
+b = 10
+Is a and b equal? : false
+Is a and b not equal? : true
+Is a greater than b? : true
+Is a less than b? : false
+Is a greater than or equal to b? : true
+Is a less than or equal to b? : false
+
+
+Type Test Operators
+
+Type test operators are used to check the data type of a variable at runtime.
+
+✅ Type Test Operators
+Operator	Meaning	Example	Result
+is	Checks if object is of a type	x is int	true / false
+is!	Checks if object is NOT of a type	x is! String	true / false
+as	Type casting	x as int		Casts to int
+
+main() {
+  var x = 71;
+  print(x is int);
+  print(x is! String);
+
+  dynamic y = "Hello Dart";
+  String s = y as String;
+  print(s);
+}
+
+output:
+true
+true
+Hello Dart
+
+
+Logical Operators
+
+Logical operators are used to combine or invert boolean expressions.
+They always return true or false.
+
+✅ List of Logical Operators
+Operator	Name	Meaning	Example	Result
+&&	Logical AND	True if both are true	(true && false)	false
+||	Logical OR	True if any one is true		(true || false) true
+!	Logical NOT	Inverts the boolean value	!true	false
+
+main() {
+  bool x = true;
+  bool y = false;
+
+  print(x && y);
+  print(x || y);
+  print(!x);
+  print(!y);
+}
+
+output:
+false
+true
+false
+true
+
+
+Bitwise Operators
+
+Bitwise operators are used to manipulate individual bits of integer values.
+
+✅ List of Bitwise Operators
+Operator	Name	Meaning	Example	Result
+&	AND	Bits are 1 if both are 1	5 & 3	1
+|	OR	Bits are 1 if any is 1	`5
+^	XOR	Bits are 1 if bits are different	5 ^ 3	6
+~	NOT	Inverts all bits	~5	-6
+<<	Left shift	Shifts bits left	5 << 1	10
+>>	Right shift	Shifts bits right	5 >> 1	2
+
+main() {
+  var x = 15; //01111
+  var y = 11; //01011
+
+  print(x & y); //01011
+  print(x | y); //01111
+  print(x ^ y); //00100
+  print(~x);
+  print(~y);
+  print(x >> 1);
+  print(x << 1);
+  print(y >> 1);
+  print(y << 1);
+}
+
+output:
+11
+15
+4
+-16
+-12
+7
+30
+5
+22
+
+
+Dart Constants
+Dart constant is defined as an immutable object
+It can't be changed or modified during the execution of the program
+Once the value is initialized it cannot be reassigned.
+Dart constant two type.
+-final keyword
+-const keyword
+
+main() {
+  const x = 15;
+  final y = 10;
+  print(x);
+  print(y);
+}
+
+output:
+15
+10
+
+
+List Properties
+
+first-> return first element
+last-> return last element
+length-> return length of the list
+isEmpty-> return true if list is empty
+isNotEmpty-> return true if list has at least one element
+reversed-> return list in reversed order
+Single-> checks if it has only one element and returns it
+
+main() {
+  var city = ['Dhaka', 'Patuakhali', 'Barishal', 'Dumki', 'Kuakata'];
+  var result = city.length;
+  print(result);
+  var travel = city.first;
+  print(travel);
+  travel = city.last;
+  print(travel);
+  var rev = city.reversed;
+  print(rev);
+  print(city.isEmpty);
+  print(city.isNotEmpty);
+  var open = ['Closed'];
+  print(open.single);
+}
+
+output:
+5
+Dhaka
+Kuakata
+(Kuakata, Dumki, Barishal, Patuakhali, Dhaka)
+false
+true
+Closed
+
+
+Fixed Length List
+A fixed length list has a size that cannot be changed after creation.
+
+❌ Cannot add new elements
+
+❌ Cannot remove elements
+
+✅ Can update existing elements
+
+
+main() {
+  const city = ['Dhaka', 'Barishal', 'Patuakhali'];
+
+  print(city);
+}
+
+output:
+[Dhaka, Barishal, Patuakhali]
+
+if we try to add or remove it will show error
+
+Growable List
+A growable list can change its size dynamically.
+
+✅ Can add elements
+
+✅ Can remove elements
+
+✅ Can update elements
+
+main() {
+  var city = ['Dhaka', 'Barishal', 'Patuakhali'];
+
+  print(city);
+
+  city.add('Dumki');
+
+  print(city);
+
+  city.remove('Patuakhali');
+
+  print(city);
+}
+
+output:
+[Dhaka, Barishal, Patuakhali]
+[Dhaka, Barishal, Patuakhali, Dumki]
+[Dhaka, Barishal, Dumki]
+
+
+List Insert
+There are 4 types of method to insert elements to a list
+-add() : for adding one element in the last
+-addAll() : for adding more than one elements in the last
+-insert() : for adding one element in the given index
+-insertAll() : for adding more than one elements in the given index
+
+main() {
+  var num = [1, 2, 3, 4, 5];
+  print(num);
+
+  num.add(6);
+  print(num);
+
+  num.addAll([7, 8, 9]);
+  print(num);
+
+  num.insert(2, 0);
+  print(num);
+
+  num.insertAll(1, [25, 26, 71]);
+  print(num);
+}
+
+output:
+[1, 2, 3, 4, 5]
+[1, 2, 3, 4, 5, 6]
+[1, 2, 3, 4, 5, 6, 7, 8, 9]
+[1, 2, 0, 3, 4, 5, 6, 7, 8, 9]
+[1, 25, 26, 71, 2, 0, 3, 4, 5, 6, 7, 8, 9]
+
+
+List Update
+For updating list value
+list_name[index_value] = new value;
+
+main() {
+  var num = [1, 2, 3, 4, 5];
+  print(num);
+
+  num[1] = 0;
+  num[4] = 6;
+  print(num);
+}
+
+output:
+[1, 2, 3, 4, 5]
+[1, 0, 3, 4, 6]
+
+
+list Remove
+For removing one or more elements from a list
+-remove() : remove one element with its value
+-removeAt() : remove one element with its index
+-removeLast() : remove last element
+-removeRange() : remove elements from start range to end range
+
+main() {
+  var num = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+  print(num);
+
+  num.remove(7);
+  print(num);
+
+  num.removeAt(3);
+  print(num);
+
+  num.removeLast();
+  print(num);
+
+  num.removeRange(1, 4);
+  print(num);
+}
+
+output:
+[1, 2, 3, 4, 5, 6, 7, 8, 9]
+[1, 2, 3, 4, 5, 6, 8, 9]
+[1, 2, 3, 5, 6, 8, 9]
+[1, 2, 3, 5, 6, 8]
+[1, 6, 8]
+
+
+Dart Set
+-The dart set is an unordered collection of the different values of the same type
+-Same as array but unordered
+-don't allow duplicate values
+-Unique values
+
+add() -> add one element
+addAll() -> add many elements
+
+main() {
+  var citySet = <String>{'Dhaka', 'Barishal', 'Patuakhali'};
+  print(citySet);
+
+  citySet.add('Cox Bazar');
+  print(citySet);
+
+  citySet.addAll({'Rangpur', 'Rajshahi', 'Dumki'});
+  print(citySet);
+}
+
+output:
+{Dhaka, Barishal, Patuakhali}
+{Dhaka, Barishal, Patuakhali, Cox Bazar}
+{Dhaka, Barishal, Patuakhali, Cox Bazar, Rangpur, Rajshahi, Dumki}
+
+
+Access set element
+-elementAt() - access element at a specified index
+
+main() {
+  var names = <String>{'Priyanto', 'Rupa', 'Tahsin', 'Ismita'};
+
+  var x = names.elementAt(2);
+  print(x);
+}
+
+output:
+Tahsin
+
+Remove all set elements
+-clear() - to fully empty the set
+main() {
+  var names = <String>{'Priyanto', 'Tahsin', 'Rupa', 'Ismita'};
+  print(names);
+
+  names.clear();
+  print(names);
+}
+
+output:
+{Priyanto, Tahsin, Rupa, Ismita}
+{}
+
+
+Dart properties
+first - To get first element
+isEmpty - checks if empty. if empty print true else false
+isNotEmpty - checks if not empty. if empty print false else true
+length - length of the set
+last - to get last element
+hashcode - get the hash code for the corresponding object
+single - prints only if it has one element else prints unhandled exception: Too many elements
+
+main() {
+  var names = <String>{'Priyanto', 'Tahsin', 'Rupa', 'Ismita'};
+  print(names.first);
+  print(names.isEmpty);
+  print(names.isNotEmpty);
+  print(names.length);
+  print(names.last);
+  print(names.hashCode);
+  var city = <String>{'Hi'};
+  print(city.single);
+}
+
+output:
+Priyanto
+false
+true
+4
+Ismita
+155423337
+Hi
+
+Dart Map Element add
+main() {
+  var student = {'name': 'Priyanto', 'age': 22, 'number': '0188xxxx451'};
+  student['ID'] = 2302027;
+  print(student);
+}
+
+output:
+{name: Priyanto, age: 22, number: 0188xxxx451, ID: 2302027}
+
+Using map constructor
+main() {
+  var student = new Map();
+  student['Name'] = 'Priyanto';
+  student['Id'] = 2302027;
+  student['Faculty'] = 'CSE';
+
+  print(student);
+}
+
+output:
+{Name: Priyanto, Id: 2302027, Faculty: CSE}
+
+
+Map properties
+keys - get all keys as an iterable object
+values - get all values as an iterable object
+length - length of the map object
+isEmpty - checks if it is empty
+isNotEmpty - checks if it is not empty
+
+main() {
+  var student = new Map();
+  student['Name'] = 'Priyanto';
+  student['ID'] = 2302027;
+  student['Faculty'] = 'CSE';
+
+  print(student.keys);
+  print(student.values);
+  print(student.length);
+  print(student.isEmpty);
+  print(student.isNotEmpty);
+}
+
+output:
+(Name, ID, Faculty)
+(Priyanto, 2302027, CSE)
+3
+false
+true
+
+
+Map methods
+addAll() - to add multiple key value pairs
+clear() - to clear full map
+remove() - to remove one key value pair
+
+main() {
+  var student = {'Name': 'Priyanto', 'ID': 2302027, 'Faculty': 'CSE'};
+
+  print(student);
+  student.addAll({'Age': 22, 'Status': 'Single'});
+  print(student);
+
+  student.remove('Age');
+
+  print(student);
+
+  student.clear();
+  print(student);
+}
+
+output:
+{Name: Priyanto, ID: 2302027, Faculty: CSE}
+{Name: Priyanto, ID: 2302027, Faculty: CSE, Age: 22, Status: Single}
+{Name: Priyanto, ID: 2302027, Faculty: CSE, Status: Single}
+{}
+
+
+Dart Control flow
+The control statements or flow of control statements are used to control the flow of dart program.
+- Decision making
+- looping
+- jumping
+
+Decision making
+determine which statement to execute depending on the test expression at runtime.
+- if
+- if else
+- if else if
+- switch
+
+If
+if(condition){
+statements
+}
+
+main() {
+  var mark = 88;
+  if (mark >= 80) {
+    print("Result A+");
+  }
+  print("Result F");
+}
+
+output:
+Result A+
+Result F
+
+If else
+if(condition){
+statements
+} else{
+statements
+}
+
+main() {
+  var mark = 88;
+  if (mark >= 80) {
+    print("Result A+");
+  } else {
+    print("Result F");
+  }
+}
+
+output:
+Result A+
+
+If else if
+if(condition){
+statements
+} else if(condition){
+statements
+} else{
+statements
+}
+
+main() {
+  var mark = 88;
+  if (mark >= 80) {
+    print("Result A+");
+  } else if (mark < 80 && mark >= 75) {
+    print("Result A");
+  } else if (mark < 75 && mark >= 70) {
+    print("Result A-");
+  } else if (mark < 70 && mark >= 65) {
+    print("Result B+");
+  } else if (mark < 65 && mark >= 60) {
+    print("Result B");
+  } else if (mark < 60 && mark >= 55) {
+    print("Result B-");
+  } else if (mark < 55 && mark >= 50) {
+    print("Result C+");
+  } else if (mark < 50 && mark >= 45) {
+    print("Result C");
+  } else if (mark < 45 && mark >= 40) {
+    print("Result D");
+  } else {
+    print("Result F");
+  }
+}
+
+output:
+Result A+
+
+Switch
+
+main() {
+  var num = 4;
+  switch (num) {
+    case 1:
+      print("num 1");
+      break;
+    case 2:
+      print("num 2");
+      break;
+    case 3:
+      print("num 3");
+      break;
+    case 4:
+      print("num 4");
+      break;
+    default:
+      print("under default");
+      break;
+  }
+}
+
+output:
+num 4
+
+
+For Loop
+for(initialization; condition; increment/decrement){
+statements
+}
+
+main() {
+  for (var i = 0; i < 5; i++) {
+    print("Dart" + i.toString());
+  }
+}
+
+output:
+Dart0
+Dart1
+Dart2
+Dart3
+Dart4
+
+For in loop
+used for arrays, list, set, json
+
+main() {
+  var ArrayList = [1, 2, 4, 5]; //List
+  for (var num in ArrayList) {
+    print(num);
+  }
+  var ArraySet = ['A', 'B', 'C', 'D', 'E']; //Set
+  for (var ch in ArraySet) {
+    print(ch);
+  }
+  var ProductJson = [	//Json
+    {'Name': 'Shampoo', 'Price': 200},
+    {'Name': 'Belt', 'Price': 100},
+    {'Name': 'Bread', 'Price': 20},
+    {'Name': 'Jam', 'Price': 300},
+    {'Name': 'Soap', 'Price': 150},
+  ];
+  for (var product in ProductJson) {
+    print(product);
+  }
+  for (var product in ProductJson) {
+    print(product['Name']);
+  }
+}
+
+
+output:
+1
+2
+4
+5
+A
+B
+C
+D
+E
+{Name: Shampoo, Price: 200}
+{Name: Belt, Price: 100}
+{Name: Bread, Price: 20}
+{Name: Jam, Price: 300}
+{Name: Soap, Price: 150}
+Shampoo
+Belt
+Bread
+Jam
+Soap
+
+For in loop for Json
+main() {
+  var ProductJson = [
+    {'Name': 'Shampoo', 'Price': 200},
+    {'Name': 'Belt', 'Price': 100},
+    {'Name': 'Bread', 'Price': 20},
+    {'Name': 'Jam', 'Price': 300},
+    {'Name': 'Soap', 'Price': 150},
+  ];
+  for (var product in ProductJson) {
+    var item =
+        "The product is ${product['Name']} and price is ${product['Price']} Tk";
+    print(item);
+  }
+}
+
+output:
+The product is Shampoo and price is 200 Tk
+The product is Belt and price is 100 Tk
+The product is Bread and price is 20 Tk
+The product is Jam and price is 300 Tk
+The product is Soap and price is 150 Tk
+
+
+While Loop
+while(condition){
+statements
+increment
+}
+
+main() {
+  var i = 0;
+  while (i < 5) {
+    print(i);
+    i++;
+  }
+}
+
+output:
+0
+1
+2
+3
+4
+
+Do-While Loop
+do{
+statements
+increment
+}while(condition);
+
+main() {
+  var i = 0;
+  do {
+    print(i);
+    i++;
+  } while (i < 5);
+}
+
+output:
+0
+1
+2
+3
+4
+
+
+Function
+Return type
+it can be void, int, float, double, etc. the return must be matched with the returned value of function
+
+function name
+it should be appropriate and valid identifier
+
+parameter list
+it denotes the list of parameters, which is necessary when we called a function
+
+return value
+function returns a value after its execution.
+
+
+addTwoNum() {
+  var x = 10;
+  var y = 15;
+  print(x + y);
+}
+
+main() {
+  addTwoNum();
+}
+
+output:
+25
+
+
+Parameter Passing
+
+addTwoNum(int x, double y) {
+  print(x + y);
+}
+
+main() {
+  addTwoNum(5, 4.5);
+  addTwoNum(10, 1.3);
+  addTwoNum(71, 7.7);
+}
+
+output:
+9.5
+11.3
+78.7
+
+Return function
+function return values depending on the int/double/String/void
+if it is void it only prints but not return anything
+
+double addTwoNum(int x, double y) {
+  return x + y;
+}
+
+main() {
+  var result = addTwoNum(5, 10.01);
+
+  print(result);
+}
+
+output:
+15.01
+
+
+Dart OOP
+Dart is an object oriented programming language and it supports all the concepts of object oriented programming such as classes, objects, inheritance, mixin, and abstract classes.
+Class
+Object
+Inheritance
+Polymorphism
+Interfaces
+Abstract Class
+
+Dart Class
+Dart classes are defined as the blueprint of the associated objects.
+A class is a user defined data type that describes the characteristics and behavior of it.
+To get all the properties, we must create an object of the object
+
+class MyClass {
+  var MyName = "Priyanto";
+  var alphabet = ['A', 'B', 'C'];
+
+  addTwoNumbers(int a, int b) {
+    print(a + b);
+  }
+
+  addThreeNumbers(int a, int b, int c) {
+    print(a + b + c);
+  }
+}
+
+void main() {
+  var obj = new MyClass(); // new keyword is optional in Dart
+  obj.addTwoNumbers(20, 30);
+  obj.addThreeNumbers(5, 6, 8);
+
+  print(obj.MyName);
+  print(obj.alphabet);
+  print(obj.alphabet[1]);
+}
+
+output:
+50
+19
+Priyanto
+[A, B, C]
+B
+
+Accessing Class From another file (ClassAccess.dart is accessing from MyClass.dart by import 'MyClass.dart';
+MyClass.dart
+class MyClass {
+  var MyName = "Priyanto";
+  var alphabet = ['A', 'B', 'C'];
+
+  addTwoNumbers(int a, int b) {
+    print(a + b);
+  }
+
+  addThreeNumbers(int a, int b, int c) {
+    print(a + b + c);
+  }
+}
+
+ClassAccess.dart
+import 'MyClass.dart';
+
+void main() {
+  var obj = new MyClass(); // new keyword is optional in Dart
+  obj.addTwoNumbers(20, 30);
+  obj.addThreeNumbers(5, 6, 8);
+
+  print(obj.MyName);
+  print(obj.alphabet);
+  print(obj.alphabet[1]);
+}
+
+output:
+50
+19
+Priyanto
+[A, B, C]
+B
+
+Static Properties from class
+if we use static keyword in a class then it can not be call by object. it has to be called by the class name.
+
+class MyClassStatic {
+  static var MyName = "Priyanto";
+  static var alphabet = ['A', 'B', 'C'];
+
+  static addTwoNumbers(int a, int b) {
+    print(a + b);
+  }
+
+  static addThreeNumbers(int a, int b, int c) {
+    print(a + b + c);
+  }
+}
+
+import 'MyClassStatic.dart';
+
+void main() {
+  MyClassStatic.addTwoNumbers(20, 30);
+  MyClassStatic.addThreeNumbers(5, 6, 8);
+
+  print(MyClassStatic.MyName);
+  print(MyClassStatic.alphabet);
+  print(MyClassStatic.alphabet[1]);
+}
+
+output:
+50
+19
+Priyanto
+[A, B, C]
+B
+
+Class Constructor
+A constructor is a different type of function which is created with same name as its class name.
+The constructor is used to initialize an object when it is created.
+Constructor has no return type.
+Constructor can have parameters.
+Constructor executes automatically.
+
+class MyClassConstructor {
+  MyClassConstructor(String Name) {
+    print("My name is:");
+    print(Name);
+  }
+}
+
+import 'MyClassConstructor.dart';
+
+main() {
+  var obj = MyClassConstructor("Priyanto71");
+}
+
+output:
+My name is:
+Priyanto71
+
+Dart This Keyword
+The this keyword is used to refer the current class object.
+It indicates the current instance of the class, methods or constructor.
+
+class MyClassThis {
+  var num1 = 10;
+  var num2 = 20;
+
+  addTwoNumbers() {
+    var sum = this.num1 + this.num2;
+    print(sum);
+  }
+
+  myFunction() {
+    this.addTwoNumbers();
+  }
+}
+
+import 'MyClassThis.dart';
+
+main() {
+  var obj = MyClassThis();
+  obj.myFunction();
+}
+
+output:
+30
+
+Dart Inheritance
+Dart inheritance is defined as the process of deriving the properties and characteristics of another class.
+It provides the ability to create a new class from an existing class.
+We can reuse all the behavior and characteristics of the previous class in the new class.
+Parent class:
+A class which is inherited by the other class is called superclass or parent class. It is also known as a base class.
+Child class:
+A class which inherits properties from other class is called the child class. It is also known as the derived class or subclass.
+
+class ParentClass {
+  Amount() {
+    print("Amount: 1000000 BDT");
+  }
+}
+
+class ChildClass extends ParentClass {}
+
+main() {
+  var childObj = ChildClass();
+  childObj.Amount();
+  var parentObj = ParentClass();
+  parentObj.Amount();
+}
+
+output:
+Amount: 1000000 BDT
+Amount: 1000000 BDT
+
+Method Overriding
+When we declare the same method in the subclass, which is previously defined in the superclass is known as the method overriding.
+The subclass can define the same method by providing its own implementation, which is already exists in the superclass.
+The method in the superclass is called method overridden, and the method in the subclass is called method overriding.
+
+class ParentClass {
+  Amount() {
+    print("Amount: 1000000 BDT");
+  }
+}
+
+class ChildClass extends ParentClass {
+  //overriding the Amount() method of ParentClass
+  Amount() {
+    print("Amount: 500000 BDT");
+  }
+}
+
+main() {
+  var childObj = ChildClass();
+  childObj.Amount();
+  var parentObj = ParentClass();
+  parentObj.Amount();
+}
+
+output:
+Amount: 500000 BDT
+Amount: 1000000 BDT
+
+Dart Abstract
+Abstract classes are the classes in Dart that has one or more abstract method.
+Abstraction is a part of the  data encapsulation where the actual internal working of the function hides from the users.
+They interact only with external functionality.
+We can declare the abstract class by using the abstract keyword.
+There is a possibility that an abstract class may or may not have abstract methods.
+
+abstract class Parent{
+  Amount(){
+    print("Amount: 1000000 BDT");
+  }
+}
+
+import 'Parent.dart';
+
+class Child extends Parent{
+  //overriding the Amount() method of Parent class
+  Amount(){
+    print("Amount: 500000 BDT");
+  }
+}
+
+import 'Child.dart';
+
+main() {
+  var obj = Child();
+  obj.Amount();
+}
+
+output:
+Amount: 500000 BDT
+
+Why Debugging is important
+To find out my mistake
+To test/ check my code, that works well
+To understand complex program flow
+To works with complex action part by part
+To improve my code
+
+Dart Encapsulation
+Encapsulation means hiding internal data (variables) and controlling access to it through methods (getters/setters).
+Protect data from misuse
+Control how data is modified
+Improve security
+Make code maintainable
+
+class Encapsulationclass {
+  String _firstName; // _firstName is private variable
+  String _lastName; // _lastName is private variable
+  int _age; // _age is private variable
+  String _gender; // _gender is private variable
+
+  Encapsulationclass(this._firstName, this._lastName, this._age, this._gender) {
+    print("Birth Year: ${_getBirthYear()}");
+  }
+  //getter method
+  String getFullName() {
+    return _firstName + " " + _lastName;
+  }
+
+  //setter method
+  void changeGender(String gender) {
+    if (gender == 'Male' || gender == 'Female') {
+      _gender = gender;
+    }
+  }
+
+  String getGender() {
+    return _gender;
+  }
+
+  void setAge(int newAge) {
+    if (newAge > 18 && newAge < 70) {
+      _age = newAge;
+    }
+  }
+
+  int getAge() {
+    return _age;
+  }
+
+  int _getBirthYear() {
+    return 2026 - _age;
+  }
+}
+
+import 'EncapsulationClass.dart';
+
+main() {
+  Encapsulationclass Person = Encapsulationclass(
+    'Priyanto',
+    'Debnath',
+    22,
+    'Male',
+  );
+  print(Person.getFullName());
+
+  Person.changeGender('male');
+  print(Person.getGender());
+
+  Person.setAge(23);
+  print(Person.getAge());
+}
+
+output:
+Birth Year: 2004
+Priyanto Debnath
+Male
+23
+
+Dart Required Keyword
+The required keyword is used to make sure a named parameter must be provided when calling a function or constructor.
+In Dart, named parameters are optional by default.
+So without required, users might forget to pass important values.
+
+main() {
+  Greeting(name: 'Priyanto', age: 22);
+  Greeting(name: 'Rupa', age: 21);
+  Greeting(name: 'Tahsin');
+}
+
+void Greeting({required String name, int age = 0}) {
+  print("Hello I think you are $name and your age is $age");
+}
+
+output:
+Hello I think you are Priyanto and your age is 22
+Hello I think you are Rupa and your age is 21
+Hello I think you are Tahsin and your age is 0
+
+Dart Recursion
+Dart recursion is the method where a function calls itself as its subroutine.
+A function which is called itself again and again or recursively, then this process is called recursion.
+
+main() {
+  int result = factorial(6);
+  print("Factorial of 6 is: $result");
+}
+
+int factorial(int n) {
+  if (n == 0) {
+    return 1;
+  } else {
+    return n * factorial(n - 1);
+  }
+}
+
+output:
+Factorial of 6 is: 720
+
+Null Safety in Dart
+A variable cannot contain null unless you explicitly allow it (?)
+? -> makes the variable null
+?? -> if the variable is null than it assign values.
+
+main() {
+  int? a; //nullable variable
+  print(a);
+
+  int b = 10;
+  int result = (a ?? 100) + b; // assign 100 to a if a is null
+  print(result);
+
+  print(a); // a is still null, because we didn't change the value of a, we just used the value of a to calculate result
+}
+
+output:
+null
+110
+null
+
+Try and Catch Exception Handling
+try-catch is used to handle errors (exceptions) so your program doesn’t crash.
+Basic Syntax
+try {
+  // risky code
+} catch (e) {
+  // handle error
+}
+
+The finally block is used to run code that must execute no matter what happens.
+
+main() {
+  int number = 0;
+  int num = 0;
+
+  try {
+    if (number ~/ num == 0) {
+      print("Number is equal to zero");
+    } else {
+      print("Number is not equal to zero");
+    }
+  } catch (e) {
+    print("Error is ${e.toString()}");
+  } finally {
+    print("Program is finished");
+  }
+}
+
+output:
+Error is IntegerDivisionByZeroException
+Program is finished
+
+interface & implementation
+An interface defines:
+What methods a class must have
+But NOT how they work
+When you use implements, you must:
+Override ALL methods
+Provide your own implementation
+
+abstract class Animal {
+  void eat();
+  void walk();
+}
+
+class Dog implements Animal {
+  @override
+  void eat() {
+    print("Dog is eating");
+  }
+
+  @override
+  void walk() {
+    print("Dog is walking");
+  }
+}
+
+main() {
+  Animal dog = Dog();
+  dog.eat();
+  dog.walk();
+}
+
+output:
+Dog is eating
+Dog is walking
+
+Dart Throw
+The throw keyword is used to manually raise an exception when something goes wrong.
+
+Combined with try-catch, it allows custom error handling.
+main() {
+  printer();
+}
+
+void printer() {
+  try {
+    printHeadLine();
+  } catch (e) {
+    print("Error is ${e.toString()}");
+  }
+  printContent();
+}
+
+void printHeadLine() {
+  throw CustomException();
+  throw Exception("This is an exception");
+  print("This is headline");
+}
+
+void printContent() {
+  print("This is content");
+}
+
+class CustomException implements Exception {
+  String toString() {
+    return "This is a custom exception";
+  }
+}
+
+output:
+Error is This is a custom exception
+This is content
+
+Synchronous Programming
+Code runs line by line, one after another
+Each task must finish before the next starts
+
+import "dart:io";
+
+main() {
+  print("Start");
+  sleep(Duration(seconds: 2));
+  print("End");
+}
+
+output:
+Start
+(wait 2 seconds)
+End
+
+Asynchronous Programming
+Tasks can run independently, without blocking the program
+
+main() async {
+  print("Start");
+  Future.delayed(Duration(seconds: 2), () {
+    print("Async Task Done");
+  });
+  print("End");
+}
+
+output:
+Start
+End
+(after 2 seconds)
+Async Task Done
+
+
+Future
+Single value later
+A value that will come in the future
+
+Future<String> getName() {
+  return Future.delayed(Duration(seconds: 2), () => "Priyanto");
+}
+
+main() async {
+  print("Hello I am");
+  var name = getName();
+  print(name);
+  print("Nice to meet you");
+}
+
+output:
+Hello I am
+Instance of 'Future<String>'
+Nice to meet you
+
+It is showing Instance of 'Future<String>' because it didn't wait for the result
+it printed Future object not its value
+It brings us to our next topic await
+
+Await
+Waits for a Future result
+
+Future<String> getName() {
+  return Future.delayed(Duration(seconds: 2), () => "Priyanto");
+}
+
+main() async {
+  print("Hello I am");
+  var name = await getName();
+  print(name);
+  print("Nice to meet you");
+}
+
+output:
+Hello I am
+(waits 2 seconds)
+Priyanto
+Nice to meet you
+
+Error handling in Async
+
+main() async {
+  try {
+    await Future.error("Something went wrong");
+  } catch (e) {
+    print(e);
+  }
+}
+
+output:
+Something went wrong
+
+Input in Dart
+
+import 'dart:io';
+
+main() {
+  print("Enter name: ");
+  String? name = stdin.readLineSync();
+  print("Enter age: ");
+  int age = int.parse(stdin.readLineSync()!);
+  print("Enter Height: ");
+  double height = double.parse(stdin.readLineSync()!);
+  print("Is all the info is true/ false: ");
+  bool isTrue = stdin.readLineSync()!.toLowerCase() == "true";
+  print("Name: $name");
+  print("Age: $age");
+  print("Height: $height");
+  print("Is Info True: $isTrue");
+}
+
+output:
+Name: Priyanto
+Age: 22
+Height: 6.3
+Is Info True: true
+
+File Handling in dart
+
+import 'dart:io';
+
+main() async {
+  File file = File("data.txt");
+  file.createSync(); //creating a file
+
+  await File(
+    "data.txt",
+  ).writeAsString("I am learning Dart"); //writing to a file
+
+  File("data.txt").writeAsString(
+    " I am New to Dart\n",
+    mode: FileMode.append, //appending to a file
+  );
+  try {
+    String content = await File(
+      "data.txt",
+    ).readAsString(); //reading from a file
+    print(content);
+  } catch (e) {
+    print("Error: $e");
+  }
+
+  //File("data.txt").deleteSync(); //deleting a file
+
+  print(await file.exists()); //checking if a file exists
+}
+
+output:
+I am learning Dart I am New to Dart
+
+true
+
